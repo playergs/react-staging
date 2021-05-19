@@ -1,12 +1,14 @@
+import footer from './index.module.css'
 import React, {Component} from 'react';
-import './index.css'
 
-export default class Index extends Component {
+class Footer extends Component {
     render() {
         return (
             <div>
-                <h2 className="demo">Welcome</h2>
+
             </div>
         );
     }
 }
+
+export default Footer;

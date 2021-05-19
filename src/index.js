@@ -1,9 +1,7 @@
-//引入react核心
-import React from 'react';
-//引入React-dom
-import ReactDOM from 'react-dom';
-//引入App组件
-import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom"
+import App from "./App"
+
 
 ReactDOM.render(
     <React.StrictMode>

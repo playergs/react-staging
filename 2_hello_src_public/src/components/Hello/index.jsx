@@ -1,11 +1,11 @@
 import React,{Component} from "react";
-import './index.css'
+import hello from './index.module.css'
 
 export default class Index extends Component {
     render() {
         return (
             <div>
-                <h1 className="title">Hello,React! </h1>
+                <h1 className={hello.title}>Hello,React! </h1>
             </div>
         );
     }
