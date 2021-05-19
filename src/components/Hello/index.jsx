@@ -1,7 +1,7 @@
 import React,{Component} from "react";
-import './Hello.css'
+import './index.css'
 
-export default class Hello extends Component {
+export default class Index extends Component {
     render() {
         return (
             <div>

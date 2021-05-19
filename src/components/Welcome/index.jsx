@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
+import './index.css'
 
-class Welcome extends Component {
+export default class Index extends Component {
     render() {
         return (
             <div>
-
+                <h2 className="demo">Welcome</h2>
             </div>
         );
     }
 }
-
-export default Welcome;
