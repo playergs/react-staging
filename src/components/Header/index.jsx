@@ -5,7 +5,7 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <input/>
+                <input className={header} placeholder='按回车提交'/>
             </div>
         );
     }
