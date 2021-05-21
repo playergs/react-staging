@@ -1,17 +1,34 @@
-import footer from './index.module.css'
 import React, {Component} from 'react';
+import './index.css'
 
 class Footer extends Component {
+
+    handleCheckAll = (event) => {
+        this.props.checkAllTodo(event.target.checked)
+    }
+
+    handleClearAllDone = () => {
+        this.props.clearAllDone()
+    }
+
     render() {
+        const {todos} = this.props
+        const doneCount = todos.reduce(
+            (pre, current) => {
+                return pre + (current.done ? 1 : 0)
+            },
+            0
+        )
+        const total = todos.length
         return (
-            <div className={footer}>
+            <div className='todo-footer'>
                 <label>
-                    <input type='checkbox'/>
+                    <input type='checkbox' checked={doneCount === total && total !== 0} onChange={this.handleCheckAll}/>
                 </label>
                 <span>
-                    <span>已完成0</span> / 全部 2
+                    <span>已完成{doneCount}</span> / 全部 {total}
                 </span>
-                <button>清除已完成的任务</button>
+                <button onClick={this.handleClearAllDone} className='btn btn-danger'>清除已完成的任务</button>
             </div>
         );
     }

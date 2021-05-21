@@ -1,15 +1,36 @@
-import item from './index.module.css'
 import React, {Component} from 'react';
+import './index.css'
 
 class Item extends Component {
+    state = {mouse : false}
+
+    handleMouse = (flag) => {
+        return () => {
+            this.setState({mouse : flag})
+        }
+    }
+
+    handleCheck = (id) => {
+        return (event) => {
+            this.props.updateTodo(id, event.target.checked)
+        }
+    }
+
+    handleDelete = (id) => {
+        if (window.confirm('确定要删除吗？')) {
+            this.props.deleteTodo(id)
+        }
+    }
+
     render() {
+        const {id, name, done} = this.props
         return (
-            <li className={item}>
+            <li style={{backgroundColor : this.state.mouse ? '#ddd' : 'white'}} onMouseLeave={this.handleMouse(false)} onMouseEnter={this.handleMouse(true)}>
                 <label>
-                    <input type='checkbox'/>
-                    <span>xxxx</span>
+                    <input type='checkbox' checked={done} onChange={this.handleCheck(id)}/>
+                    <span>{name}</span>
                 </label>
-                <button style={{display:'none'}}>删除</button>
+                <button onClick={() => {this.handleDelete(id)}} className='btn btn-danger' style={{display: this.state.mouse ? 'block' : 'none'} }>删除</button>
             </li>
         );
     }
